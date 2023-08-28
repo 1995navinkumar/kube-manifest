@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      issues: read
       pull-requests: write
     if: >-
         ${{
@@ -24,8 +25,16 @@ jobs:
           contains(github.event.comment.body, '/plan')
         }}
     steps:
+      - name: Get branch name of PR
+        uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
+          fetch-depth: 1
 
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
