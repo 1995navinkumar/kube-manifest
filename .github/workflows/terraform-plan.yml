@@ -54,4 +54,3 @@ jobs:
                \`\`\`
                [Terraform Cloud Plan](${{ steps.plan-run.outputs.run_link }})
           allow-repeats: true
-          repo-token: ${{ secrets.CI_BOT_TOKEN }}
