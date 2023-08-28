@@ -1,6 +1,9 @@
 name: "Terraform Plan"
 
-on: push
+on: 
+  push:
+    branches-ignore:
+      - "master"
 
 env:
   TF_CLOUD_ORGANIZATION: "sknk"
@@ -41,3 +44,14 @@ jobs:
         with:
           plan: ${{ fromJSON(steps.plan-run.outputs.payload).data.relationships.plan.data.id }}
 
+      - name: Comment Plan link to PR
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            #### Terraform Cloud Plan Output
+               \`\`\`
+               Plan: ${{ steps.plan-output.outputs.add }} to add, ${{ steps.plan-output.outputs.change }} to change, ${{ steps.plan-output.outputs.destroy }} to destroy.
+               \`\`\`
+               [Terraform Cloud Plan](${{ steps.plan-run.outputs.run_link }})
+          allow-repeats: true
+          repo-token: ${{ secrets.CI_BOT_TOKEN }}
