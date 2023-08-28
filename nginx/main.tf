@@ -7,7 +7,7 @@ resource "kubernetes_deployment" "nginx" {
   }
 
   spec {
-    replicas = 2
+    replicas = 1
     selector {
       match_labels = {
         App = "ScalableNginxExample"
@@ -26,17 +26,6 @@ resource "kubernetes_deployment" "nginx" {
 
           port {
             container_port = 80
-          }
-
-          resources {
-            limits = {
-              cpu    = "0.5"
-              memory = "512Mi"
-            }
-            requests = {
-              cpu    = "250m"
-              memory = "50Mi"
-            }
           }
         }
       }
