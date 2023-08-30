@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: default
-  name: scalable-nginx-example
+  name: nginx
   labels:
-    App: ScalableNginxExample
+    app: nginx
 spec:
   selector:
     matchLabels:
-      App: ScalableNginxExample
+      app: nginx
   replicas: 2
   template:
     metadata:
       labels:
-        App: ScalableNginxExample
+        app: nginx
     spec:
       containers:
-        - name: example
+        - name: nginx
           image: nginx:latest
           ports:
             - containerPort: 80
