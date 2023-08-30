@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: default
   name: scalable-nginx-example
   labels:
     App: ScalableNginxExample
