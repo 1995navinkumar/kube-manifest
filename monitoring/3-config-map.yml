@@ -4,10 +4,11 @@ metadata:
   name: prometheus-server-conf
   labels:
     name: prometheus-server-conf
+  namespace: monitoring
 data:
   prometheus.rules: |-
     groups:
-    - name: demo alert
+    - name: common alert rules
       rules:
       - alert: High Pod Memory
         expr: sum(container_memory_usage_bytes) > 1
@@ -27,7 +28,7 @@ data:
       - scheme: http
         static_configs:
         - targets:
-          - "alertmanager.monitoring.svc:9093"
+          - "alertmanager.default.svc:9093"
     scrape_configs:
       - job_name: 'node-exporter'
         kubernetes_sd_configs:

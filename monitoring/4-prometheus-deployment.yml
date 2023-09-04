@@ -4,6 +4,7 @@ metadata:
   name: prometheus-deployment
   labels:
     app: prometheus-server
+  namespace: monitoring
 spec:
   replicas: 1
   selector:

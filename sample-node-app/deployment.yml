@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-app
+  namespace: node-app
 spec:
   selector:
     matchLabels:
@@ -16,7 +17,6 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: node-app
-          imagePullPolicy: Never
+          image: 1995navinkumar/learn:node-app-v2
           ports:
             - containerPort: 8888

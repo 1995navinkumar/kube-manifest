@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: node-app-ingress
+  namespace: node-app
+  annotations:
+    nginx.org/rewrites: "serviceName=node-app-svc rewrite=/"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: gently-concise-dogfish.ngrok-free.app
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: node-app-svc
+                port:
+                  number: 80
