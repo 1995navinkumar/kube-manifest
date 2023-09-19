@@ -9,5 +9,5 @@ terraform {
 }
 
 module "kubernetes" {
-  source = "${path.root}/kubernetes"
+  source = "/kubernetes"
 }
