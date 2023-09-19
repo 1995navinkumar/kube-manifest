@@ -1,6 +1,5 @@
 resource "helm_release" "nginx" {
   name = "nginx"
-
-  repository = "oci://registry-1.docker.io/bitnamicharts/nginx"
+  repository = "https://charts.bitnami.com/bitnami"
   chart      = "nginx"
 }
