@@ -5,5 +5,5 @@ provider "helm" {
 }
 
 module "nginx" {
-  source = "${path.module}/charts/nginx"
+  source = "./charts/nginx"
 }
