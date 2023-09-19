@@ -2,5 +2,9 @@ version: 3
 projects:
   - dir: .
     workspace: production
+    autoplan:
+      enabled: false
   - dir: .
     workspace: staging
+    autoplan:
+      enabled: false
