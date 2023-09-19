@@ -7,7 +7,3 @@ terraform {
     }
   }
 }
-
-module "kubernetes" {
-  source = "/kubernetes"
-}
