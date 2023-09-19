@@ -3,7 +3,11 @@ terraform {
     organization = "sknk"
 
     workspaces {
-      name = "terraform"
+      name = "production"
     }
   }
+}
+
+module "kubernetes" {
+  source = "../kubernetes"
 }
