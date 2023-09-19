@@ -4,6 +4,6 @@ resource "helm_release" "nginx" {
   chart      = "nginx"
 
   values = [
-    "${file("values.yaml")}"
+    "${file("${path.module}/values.yaml")}"
   ]
 }
