@@ -1,6 +1,6 @@
 version: 3
 projects:
   - dir: .
-    workspace: production
+    workspace: terraform
     autoplan:
       enabled: false
