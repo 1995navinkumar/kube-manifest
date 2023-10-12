@@ -12,6 +12,3 @@ module "nginx" {
   source = "./charts/nginx"
 }
 
-output "print" {
-  value = var.kubehost
-}
