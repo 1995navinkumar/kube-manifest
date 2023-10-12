@@ -3,7 +3,7 @@ terraform {
     organization = "sknk"
 
     workspaces {
-      name = "production"
+      name = "terraform"
     }
   }
   required_providers {
