@@ -1,5 +1,6 @@
 variable "kubehost" {
   type    = string
+  default = ""
 }
 
 variable "client_certificate" {
