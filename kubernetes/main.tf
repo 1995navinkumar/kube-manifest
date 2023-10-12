@@ -1,5 +1,5 @@
 provider "kubernetes" {
-  host = var.kube-host
+  host = var.kubehost
 
   client_certificate     = var.client_certificate
   client_key             = var.client_key
