@@ -15,3 +15,7 @@ module "nginx" {
 module "traefik" {
   source = "./charts/traefik"
 }
+
+module "whoami" {
+  source = "./charts/whoami"
+}
