@@ -12,3 +12,6 @@ module "nginx" {
   source = "./charts/nginx"
 }
 
+module "traefik" {
+  source = "./charts/traefik"
+}
