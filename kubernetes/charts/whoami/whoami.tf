@@ -1,4 +1,4 @@
 resource "helm_release" "whoami" {
   name       = "whoami"
-  chart      = "./"
+  chart      = "${path.module}"
 }
