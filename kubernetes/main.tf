@@ -12,9 +12,9 @@ provider "helm" {
 #   source = "./charts/nginx"
 # }
 
-module "traefik" {
-  source = "./charts/traefik"
-}
+# module "traefik" {
+#   source = "./charts/traefik"
+# }
 
 module "whoami" {
   source = "./charts/whoami"
