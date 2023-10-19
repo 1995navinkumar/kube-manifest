@@ -1,1 +1,15 @@
 hostNetwork: true
+ports:
+  web:
+    port: 80
+  websecure:
+    port: 443
+
+securityContext:
+  capabilities:
+    drop: [ALL]
+    add: [NET_BIND_SERVICE]
+  readOnlyRootFilesystem: true
+  runAsGroup: 0
+  runAsNonRoot: false
+  runAsUser: 0
