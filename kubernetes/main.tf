@@ -8,10 +8,14 @@ provider "helm" {
     cluster_ca_certificate = base64decode(var.cluster_ca_certificate)
   }
 }
-module "nginx" {
-  source = "./charts/nginx"
-}
+# module "nginx" {
+#   source = "./charts/nginx"
+# }
 
-module "traefik" {
-  source = "./charts/traefik"
+# module "traefik" {
+#   source = "./charts/traefik"
+# }
+
+module "whoami" {
+  source = "./charts/whoami"
 }
