@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: react-starter-vite
-          image: dockercsandeep/react-starter:0fd54b2fae0d670ddfe531ccdeb921bacea96c5e
+          image: dockercsandeep/react-starter:2064aad5adcc4c2eba1eb445ff0f693c5da9ae0d
           ports:
             - name: web
               containerPort: 8080
