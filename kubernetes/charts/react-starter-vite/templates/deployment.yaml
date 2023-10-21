@@ -21,4 +21,4 @@ spec:
           image: dockercsandeep/react-starter:8b83e2b0dce62ec10bf8401f3813c0c072a6b92d
           ports:
             - name: web
-              containerPort: 80
+              containerPort: 8080
