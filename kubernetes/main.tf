@@ -36,6 +36,6 @@ module "react-starter-vite" {
 module "test-server" {
   source = "./charts/test-server"
 }
-module "monitoring" {
-  source = "./charts/monitoring"
+module "prometheus" {
+  source = "./charts/prometheus"
 }
