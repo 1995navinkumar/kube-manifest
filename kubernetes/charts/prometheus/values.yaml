@@ -1,3 +1,7 @@
 server:
   persistentVolume:
     enabled: false
+prometheus-node-exporter:
+  enabled: false
+prometheus-pushgateway:
+  enabled: false
