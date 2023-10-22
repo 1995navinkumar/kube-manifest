@@ -1,0 +1,28 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: stripprefix-react-starter-vite
+  namespace: react-starter-vite
+spec:
+  stripPrefix:
+    prefixes:
+      - "/react-starter-vite"
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingress-react-starter-vite
+  namespace: react-starter-vite
+
+spec:
+  entryPoints:
+    - web
+
+  routes:
+    - match: PathPrefix(`/react-starter-vite`)
+      kind: Rule
+      services:
+        - name: react-starter-vite
+          port: 80
+      middlewares:
+        - name: stripprefix-react-starter-vite

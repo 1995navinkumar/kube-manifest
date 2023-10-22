@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: react-starter-vite
+  name: react-starter-vite
+  labels:
+    app: react-starter-vite
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-starter-vite
+  template:
+    metadata:
+      labels:
+        app: react-starter-vite
+    spec:
+      containers:
+        - name: react-starter-vite
+          image: dockercsandeep/react-starter:2064aad5adcc4c2eba1eb445ff0f693c5da9ae0d
+          ports:
+            - name: web
+              containerPort: 8080

@@ -19,3 +19,7 @@ provider "helm" {
 module "whoami" {
   source = "./charts/whoami"
 }
+
+module "react-starter-vite" {
+  source = "./charts/react-starter-vite"
+}
