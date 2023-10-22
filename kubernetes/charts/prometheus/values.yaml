@@ -5,4 +5,3 @@ prometheus-node-exporter:
   enabled: false
 prometheus-pushgateway:
   enabled: false
-forceNamespace: monitoring 
