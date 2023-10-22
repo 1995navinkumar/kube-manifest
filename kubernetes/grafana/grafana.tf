@@ -12,12 +12,12 @@ resource "helm_release" "grafana" {
   depends_on = [kubernetes_manifest.grafana-namespace]
 }
 
-resource "kubernetes_manifest" "grafana-ingress-middleware" {
-  manifest   = yamldecode(file("${path.module}/manifests/grafana-ingress-middleware.yaml"))
-  depends_on = [helm_release.grafana]
-}
+# resource "kubernetes_manifest" "grafana-ingress-middleware" {
+#   manifest   = yamldecode(file("${path.module}/manifests/grafana-ingress-middleware.yaml"))
+#   depends_on = [helm_release.grafana]
+# }
 
-resource "kubernetes_manifest" "grafana-ingress" {
-  manifest   = yamldecode(file("${path.module}/manifests/grafana-ingress.yaml"))
-  depends_on = [kubernetes_manifest.grafana-ingress-middleware]
-}
+# resource "kubernetes_manifest" "grafana-ingress" {
+#   manifest   = yamldecode(file("${path.module}/manifests/grafana-ingress.yaml"))
+#   depends_on = [kubernetes_manifest.grafana-ingress-middleware]
+# }
