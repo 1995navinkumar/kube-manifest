@@ -9,4 +9,4 @@ alertmanager:
   enabled: false
 kube-state-metrics:
   enabled: false
-namespace: monitoring
+forceNamespace: monitoring
