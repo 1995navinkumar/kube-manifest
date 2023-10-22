@@ -1,0 +1,28 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: stripprefix-test-server
+  namespace: test-server
+spec:
+  stripPrefix:
+    prefixes:
+      - "/test-server"
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingress-test-server
+  namespace: test-server
+
+spec:
+  entryPoints:
+    - web
+
+  routes:
+    - match: PathPrefix(`/test-server`)
+      kind: Rule
+      services:
+        - name: test-server
+          port: 80
+      middlewares:
+        - name: stripprefix-test-server
