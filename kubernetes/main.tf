@@ -23,3 +23,7 @@ module "whoami" {
 module "react-starter-vite" {
   source = "./charts/react-starter-vite"
 }
+
+module "prometheus" {
+  source = "./charts/prometheus"
+}
