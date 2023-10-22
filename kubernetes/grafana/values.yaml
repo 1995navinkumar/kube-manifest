@@ -1,0 +1,11 @@
+namespaceOverride: grafana
+grafana.ini:
+  server:
+    domain: "gently-concise-dogfish.ngrok-free.app"
+    root_url: "%(protocol)s://%(domain)s/grafana"
+    serve_from_sub_path: true
+ingress:
+  enabled: true
+  hosts:
+    - "gently-concise-dogfish.ngrok-free.app"
+  path: "/grafana"
