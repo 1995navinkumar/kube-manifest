@@ -24,6 +24,9 @@ module "react-starter-vite" {
   source = "./charts/react-starter-vite"
 }
 
+module "test-server" {
+  source = "./charts/test-server"
+}
 module "prometheus" {
   source = "./charts/prometheus"
 }
