@@ -18,24 +18,24 @@ provider "kubernetes" {
 }
 
 # module "nginx" {
-#   source = "./charts/nginx"
+#   source = "./nginx"
 # }
 
 # module "traefik" {
-#   source = "./charts/traefik"
+#   source = "./traefik"
 # }
 
 module "whoami" {
-  source = "./charts/whoami"
+  source = "./whoami"
 }
 
 module "react-starter-vite" {
-  source = "./charts/react-starter-vite"
+  source = "./react-starter-vite"
 }
 
 module "test-server" {
-  source = "./charts/test-server"
+  source = "./test-server"
 }
 module "prometheus" {
-  source = "./charts/prometheus"
+  source = "./prometheus"
 }
