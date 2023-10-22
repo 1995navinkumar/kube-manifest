@@ -17,6 +17,9 @@ resource "helm_release" "promtail" {
   repository = "https://grafana.github.io/helm-charts"
   chart      = "promtail"
   namespace  = "grafana"
+  values = [
+    "${file("${path.module}/promtail-values.yaml")}"
+  ]
   depends_on = [helm_release.grafana]
 }
 

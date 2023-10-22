@@ -1,0 +1,3 @@
+initContainer:
+  enabled: true
+  fsInotifyMaxUserInstances: 512
