@@ -11,5 +11,5 @@ resource "helm_release" "prometheus" {
 }
 
 resource "kubernetes_manifest" "prometheus-ingress" {
-  manifest = yamldecode(file("${path.module}/manifests/ingress.yaml"))
+  manifest = yamldecode(file("${path.module}/manifests/ingress-prometheus.yaml"))
 }
