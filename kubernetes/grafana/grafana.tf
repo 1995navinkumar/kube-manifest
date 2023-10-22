@@ -12,6 +12,14 @@ resource "helm_release" "grafana" {
   depends_on = [kubernetes_manifest.grafana-namespace]
 }
 
+resource "helm_release" "promtail" {
+  name       = "promtail"
+  repository = "https://grafana.github.io/helm-charts"
+  chart      = "promtail"
+  namespace  = "grafana"
+  depends_on = [helm_release.grafana]
+}
+
 # resource "kubernetes_manifest" "grafana-ingress-middleware" {
 #   manifest   = yamldecode(file("${path.module}/manifests/grafana-ingress-middleware.yaml"))
 #   depends_on = [helm_release.grafana]
