@@ -1,0 +1,12 @@
+write:
+  persistence:
+    size: 3Gi
+    storageClass: monitoring-storage
+read:
+  persistence:
+    size: 3Gi
+    storageClass: monitoring-storage
+backend:
+  persistence:
+    size: 3Gi
+    storageClass: monitoring-storage
