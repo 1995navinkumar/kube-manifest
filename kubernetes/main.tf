@@ -43,3 +43,7 @@ module "prometheus" {
 module "grafana" {
   source = "./grafana"
 }
+
+module "storage-class" {
+  source = "./storage-class"
+}
