@@ -1,12 +1,15 @@
 write:
+  affinity:
   persistence:
     size: 3Gi
     storageClass: monitoring-storage
 read:
+  affinity:
   persistence:
     size: 3Gi
     storageClass: monitoring-storage
 backend:
+  affinity:
   persistence:
     size: 3Gi
     storageClass: monitoring-storage
