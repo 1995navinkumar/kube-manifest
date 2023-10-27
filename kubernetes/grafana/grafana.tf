@@ -1,15 +1,12 @@
-resource "kubernetes_manifest" "grafana-namespace" {
-  manifest = yamldecode(file("${path.module}/manifests/grafana-namespace.yaml"))
-}
 resource "helm_release" "grafana" {
-  name       = "grafana"
-  repository = "https://grafana.github.io/helm-charts"
-  chart      = "grafana"
-
+  name             = "grafana"
+  repository       = "https://grafana.github.io/helm-charts"
+  chart            = "grafana"
+  namespace        = "grafana"
+  create_namespace = true
   values = [
     "${file("${path.module}/values.yaml")}"
   ]
-  depends_on = [kubernetes_manifest.grafana-namespace]
 }
 
 resource "helm_release" "promtail" {
