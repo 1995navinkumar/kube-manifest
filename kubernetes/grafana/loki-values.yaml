@@ -1,3 +1,5 @@
+loki:
+  auth_enabled: false
 write:
   replicas: 1
   persistence:
