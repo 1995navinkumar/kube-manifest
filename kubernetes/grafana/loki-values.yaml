@@ -1,9 +1,12 @@
 write:
+  replicas: 1
   persistence:
     size: 3Gi
 read:
+  replicas: 1
   persistence:
     size: 3Gi
 backend:
+  replicas: 1
   persistence:
     size: 3Gi
