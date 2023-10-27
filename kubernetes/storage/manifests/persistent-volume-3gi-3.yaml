@@ -1,7 +1,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: persistent-volume-3Gi_1
+  name: persistent-volume-3gi-3
 spec:
   capacity:
     storage: 3Gi
