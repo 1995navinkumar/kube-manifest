@@ -4,6 +4,8 @@ ports:
     port: 80
   websecure:
     port: 443
+  metrics:
+    port: 9101
 
 securityContext:
   capabilities:
@@ -13,3 +15,5 @@ securityContext:
   runAsGroup: 0
   runAsNonRoot: false
   runAsUser: 0
+service:
+  type: ClusterIP
