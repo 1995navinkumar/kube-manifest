@@ -4,6 +4,8 @@ ports:
     port: 80
   websecure:
     port: 443
+  metrics:
+    port: 9101
 
 securityContext:
   capabilities:
