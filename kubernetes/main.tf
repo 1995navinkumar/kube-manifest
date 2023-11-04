@@ -21,9 +21,9 @@ provider "kubernetes" {
 #   source = "./nginx"
 # }
 
-# module "traefik" {
-#   source = "./traefik"
-# }
+module "traefik" {
+  source = "./traefik"
+}
 
 module "whoami" {
   source = "./whoami"
