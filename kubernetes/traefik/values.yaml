@@ -15,3 +15,5 @@ securityContext:
   runAsGroup: 0
   runAsNonRoot: false
   runAsUser: 0
+service:
+  type: ClusterIP
