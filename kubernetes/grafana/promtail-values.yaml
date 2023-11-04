@@ -12,3 +12,10 @@ initContainer:
       - sysctl -w fs.inotify.max_user_instances=512
     securityContext:
       privileged: true
+config:
+  snippets:
+    extraRelabelConfigs:
+      - action: keep
+        regex: true
+        source_labels:
+          - __meta_kubernetes_pod_annotation_scrape_logs

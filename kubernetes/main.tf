@@ -44,6 +44,6 @@ module "grafana" {
   source = "./grafana"
 }
 
-module "storage-class" {
-  source = "./storage-class"
+module "storage" {
+  source = "./storage"
 }
