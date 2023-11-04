@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: test-server
-          image: 1995navinkumar/learn:9a80686bea0eafd35d357b1e1e5ac2f54b6a7bb2
+          image: {{ .Values.image }}
           ports:
             - name: web
               containerPort: 8888
