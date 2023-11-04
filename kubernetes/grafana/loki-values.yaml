@@ -1,14 +1,14 @@
 loki:
   auth_enabled: false
-write:
-  replicas: 1
+  commonConfig:
+    replication_factor: 1
+  storage:
+    type: filesystem
+singleBinary:
   persistence:
     size: 3Gi
-read:
+    storageClass: local-storage-class
   replicas: 1
-  persistence:
-    size: 3Gi
-backend:
-  replicas: 1
-  persistence:
-    size: 3Gi
+tableManager:
+  retention_deletes_enabled: true
+  retention_period: 7d
