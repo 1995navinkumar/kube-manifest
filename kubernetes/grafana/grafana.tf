@@ -46,7 +46,7 @@ resource "kubernetes_manifest" "grafana-faro-middleware" {
 
 resource "kubernetes_manifest" "grafana-agent-ingress" {
   manifest   = yamldecode(file("${path.module}/manifests/grafana-agent-ingress.yaml"))
-  depends_on = [helm_release.grafana-faro-middleware]
+  depends_on = [kubernetes_manifest.grafana-faro-middleware]
 }
 
 resource "kubernetes_manifest" "grafana-faro-svc" {
