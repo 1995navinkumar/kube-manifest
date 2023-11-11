@@ -2,11 +2,9 @@ agent:
   configMap:
     content: |
       faro.receiver "default" {
-        extra_log_labels = {
-          component = "faro",
-          purpose = "web-logs"
+        server {
+          cors_allowed_origins = [*]
         }
-
         output {
             logs   = [loki.write.default.receiver]
         }
