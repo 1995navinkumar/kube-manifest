@@ -8,6 +8,6 @@ spec:
     - name: http-faro
       port: 80
       protocol: TCP
-      targetPort: 12347
+      targetPort: 8111
   selector:
     app.kubernetes.io/instance: grafana-agent
