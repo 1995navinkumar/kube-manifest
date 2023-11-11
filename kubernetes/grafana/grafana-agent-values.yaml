@@ -12,7 +12,7 @@ agent:
               url = "http://loki-gateway/loki/api/v1/push"
           }
       }
-  uiPathPrefix: "/grafana-agent"
+  uiPathPrefix: "/agent-grafana"
 ingress:
   enabled: true
   hosts: ["gently-concise-dogfish.ngrok-free.app"]

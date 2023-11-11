@@ -9,7 +9,7 @@ spec:
     - web
 
   routes:
-    - match: PathPrefix(`/grafana-agent`)
+    - match: PathPrefix(`/agent-grafana`)
       kind: Rule
       services:
         - name: grafana-agent
