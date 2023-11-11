@@ -4,6 +4,7 @@ agent:
       faro.receiver "default" {
         server {
           cors_allowed_origins = ["*"]
+          listen_port = 8111
         }
         output {
             logs   = [loki.write.default.receiver]
