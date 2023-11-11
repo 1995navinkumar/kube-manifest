@@ -10,6 +10,9 @@ agent:
         output {
             logs   = [loki.write.default.receiver]
         }
+        extra_log_labels = {
+          app = "frontend"
+        }
       }
 
       loki.write "default" {
