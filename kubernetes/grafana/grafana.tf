@@ -40,7 +40,7 @@ resource "helm_release" "grafana-agent" {
 }
 
 resource "kubernetes_manifest" "grafana-faro-middleware" {
-  manifest   = yamldecode(file("${path.module}/manifests/ggrafana-faro-middleware.yaml"))
+  manifest   = yamldecode(file("${path.module}/manifests/grafana-faro-middleware.yaml"))
   depends_on = [helm_release.grafana-agent]
 }
 
