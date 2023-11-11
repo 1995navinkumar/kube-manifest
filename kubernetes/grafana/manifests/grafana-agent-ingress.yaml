@@ -1,4 +1,14 @@
 apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: stripprefix-faro-grafana
+  namespace: faro-grafana
+spec:
+  stripPrefix:
+    prefixes:
+      - "/faro-grafana"
+---
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: grafana-agent-ingress
@@ -19,3 +29,5 @@ spec:
       services:
         - name: grafana-faro
           port: 80
+      middlewares:
+        - name: stripprefix-faro-grafana
