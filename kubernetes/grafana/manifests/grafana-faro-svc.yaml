@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-faro
+  namespace: grafana
+spec:
+  ports:
+    - name: http-faro
+      port: 80
+      protocol: TCP
+      targetPort: 12347
+  selector:
+    app.kubernetes.io/instance: grafana-agent
+    app.kubernetes.io/name: grafana-agent

@@ -14,3 +14,8 @@ spec:
       services:
         - name: grafana-agent
           port: 80
+    - match: PathPrefix(`/faro-grafana`)
+      kind: Rule
+      services:
+        - name: grafana-faro
+          port: 80

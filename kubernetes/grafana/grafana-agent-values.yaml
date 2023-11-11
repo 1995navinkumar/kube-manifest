@@ -13,7 +13,3 @@ agent:
           }
       }
   uiPathPrefix: "/agent-grafana"
-ingress:
-  enabled: true
-  hosts: ["gently-concise-dogfish.ngrok-free.app"]
-  path: "/faro"
