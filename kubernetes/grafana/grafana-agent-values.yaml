@@ -3,15 +3,13 @@ agent:
     content: |
       faro.receiver "default" {
         server {
-          listen_address = "0.0.0.0"
           cors_allowed_origins = ["*"]
-          listen_port = 8111
         }
         output {
             logs   = [loki.write.default.receiver]
         }
         extra_log_labels = {
-          app = "frontend"
+          app = "frontend",
         }
       }
 
@@ -23,8 +21,8 @@ agent:
   uiPathPrefix: "/agent-grafana"
   extraPorts:
     - name: "faro"
-      port: 8111
-      targetPort: 8111
+      port: 12347
+      targetPort: 12347
       protocol: "TCP"
 serviceMonitor:
   enabled: true
