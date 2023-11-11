@@ -39,6 +39,11 @@ resource "helm_release" "grafana-agent" {
   values     = ["${file("${path.module}/grafana-agent-values.yaml")}"]
 }
 
+resource "kubernetes_manifest" "grafana-agent-ingress" {
+  manifest   = yamldecode(file("${path.module}/manifests/grafana-agent-ingress.yaml"))
+  depends_on = [helm_release.grafana]
+}
+
 # resource "kubernetes_manifest" "grafana-ingress-middleware" {
 #   manifest   = yamldecode(file("${path.module}/manifests/grafana-ingress-middleware.yaml"))
 #   depends_on = [helm_release.grafana]
