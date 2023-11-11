@@ -31,6 +31,14 @@ resource "helm_release" "loki" {
   depends_on = [helm_release.grafana]
 }
 
+resource "helm_release" "grafana-agent" {
+  name       = "grafana-agent"
+  repository = "https://grafana.github.io/helm-charts"
+  chart      = "grafana-agent"
+  namespace  = "grafana"
+  values     = ["${file("${path.module}/grafana-agent-values.yaml")}"]
+}
+
 # resource "kubernetes_manifest" "grafana-ingress-middleware" {
 #   manifest   = yamldecode(file("${path.module}/manifests/grafana-ingress-middleware.yaml"))
 #   depends_on = [helm_release.grafana]

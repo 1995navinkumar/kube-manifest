@@ -1,0 +1,19 @@
+agent:
+  configMap:
+    content: |
+      faro.receiver "default" {
+        output {
+            logs   = [loki.write.default.receiver]
+        }
+      }
+
+      loki.write "default" {
+          endpoint {
+              url = "http://loki-gateway/loki/api/v1/push"
+          }
+      }
+  uiPathPrefix: "/grafana-agent"
+ingress:
+  enabled: true
+  hosts: ["gently-concise-dogfish.ngrok-free.app"]
+  path: "/faro"
