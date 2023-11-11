@@ -3,8 +3,8 @@ agent:
     content: |
       faro.receiver "default" {
         extra_log_labels = {
-          "component" = "faro"
-          "purpose" = "web-logs"
+          component = "faro",
+          purpose = "web-logs"
         }
 
         output {
