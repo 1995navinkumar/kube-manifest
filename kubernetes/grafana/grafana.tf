@@ -31,6 +31,29 @@ resource "helm_release" "loki" {
   depends_on = [helm_release.grafana]
 }
 
+resource "helm_release" "grafana-agent" {
+  name       = "grafana-agent"
+  repository = "https://grafana.github.io/helm-charts"
+  chart      = "grafana-agent"
+  namespace  = "grafana"
+  values     = ["${file("${path.module}/grafana-agent-values.yaml")}"]
+}
+
+resource "kubernetes_manifest" "grafana-faro-middleware" {
+  manifest   = yamldecode(file("${path.module}/manifests/grafana-faro-middleware.yaml"))
+  depends_on = [helm_release.grafana-agent]
+}
+
+resource "kubernetes_manifest" "grafana-agent-ingress" {
+  manifest   = yamldecode(file("${path.module}/manifests/grafana-agent-ingress.yaml"))
+  depends_on = [kubernetes_manifest.grafana-faro-middleware]
+}
+
+resource "kubernetes_manifest" "grafana-faro-svc" {
+  manifest   = yamldecode(file("${path.module}/manifests/grafana-faro-svc.yaml"))
+  depends_on = [helm_release.grafana-agent]
+}
+
 # resource "kubernetes_manifest" "grafana-ingress-middleware" {
 #   manifest   = yamldecode(file("${path.module}/manifests/grafana-ingress-middleware.yaml"))
 #   depends_on = [helm_release.grafana]
