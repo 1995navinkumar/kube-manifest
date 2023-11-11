@@ -2,9 +2,9 @@ agent:
   configMap:
     content: |
       faro.receiver "default" {
-        extra_log_labels {
-          component = "faro"
-          purpose = "web-logs"
+        extra_log_labels = {
+          "component" = "faro"
+          "purpose" = "web-logs"
         }
 
         output {
