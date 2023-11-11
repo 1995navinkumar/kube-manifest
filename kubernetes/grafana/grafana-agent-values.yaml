@@ -13,3 +13,5 @@ agent:
           }
       }
   uiPathPrefix: "/agent-grafana"
+serviceMonitor:
+  enabled: true
