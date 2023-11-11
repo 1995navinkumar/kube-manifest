@@ -2,7 +2,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: stripprefix-faro-grafana
-  namespace: faro-grafana
+  namespace: grafana
 spec:
   stripPrefix:
     prefixes:
