@@ -7,3 +7,5 @@ primary:
   persistence:
     size: 3Gi
     storageClass: local-storage-class
+volumePermissions:
+  enabled: true
