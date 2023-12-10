@@ -1,6 +1,6 @@
 resource "helm_release" "postgresql" {
   name             = "postgresql"
-  repository       = "oci://registry-1.docker.io/bitnamicharts/postgresql"
+  repository       = "https://charts.bitnami.com/bitnami"
   chart            = "postgresql"
   namespace        = "postgresql"
   create_namespace = true
