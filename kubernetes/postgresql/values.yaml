@@ -9,5 +9,5 @@ primary:
     storageClass: local-storage-class
 volumePermissions:
   enabled: true
-metrics:
-  enabled: true
+# metrics:
+#   enabled: true
