@@ -47,3 +47,7 @@ module "grafana" {
 module "storage" {
   source = "./storage"
 }
+
+module "postgresql" {
+  source = "./postgresql"
+}
