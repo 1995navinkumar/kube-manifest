@@ -1,0 +1,13 @@
+auth:
+  enablePostgresUser: true
+  postgresPassword: "${postgresAdminPassword}"
+  username: "${postgresUser}"
+  password: "${postgresPassword}"
+primary:
+  persistence:
+    size: 3Gi
+    storageClass: local-storage-class
+volumePermissions:
+  enabled: true
+# metrics:
+#   enabled: true
