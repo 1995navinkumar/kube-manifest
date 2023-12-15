@@ -20,16 +20,16 @@ resource "helm_release" "promtail" {
   depends_on = [helm_release.grafana]
 }
 
-resource "helm_release" "loki" {
-  name       = "loki"
-  repository = "https://grafana.github.io/helm-charts"
-  chart      = "loki"
-  namespace  = "grafana"
-  values = [
-    "${file("${path.module}/loki-values.yaml")}"
-  ]
-  depends_on = [helm_release.grafana]
-}
+# resource "helm_release" "loki" {
+#   name       = "loki"
+#   repository = "https://grafana.github.io/helm-charts"
+#   chart      = "loki"
+#   namespace  = "grafana"
+#   values = [
+#     "${file("${path.module}/loki-values.yaml")}"
+#   ]
+#   depends_on = [helm_release.grafana]
+# }
 
 resource "helm_release" "grafana-agent" {
   name       = "grafana-agent"

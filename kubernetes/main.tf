@@ -48,9 +48,9 @@ module "storage" {
   source = "./storage"
 }
 
-module "postgresql" {
-  source                = "./postgresql"
-  postgresAdminPassword = var.postgresAdminPassword
-  postgresUser          = var.postgresUser
-  postgresPassword      = var.postgresPassword
-}
+# module "postgresql" {
+#   source                = "./postgresql"
+#   postgresAdminPassword = var.postgresAdminPassword
+#   postgresUser          = var.postgresUser
+#   postgresPassword      = var.postgresPassword
+# }
