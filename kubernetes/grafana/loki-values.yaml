@@ -9,6 +9,3 @@ singleBinary:
     size: 3Gi
     storageClass: local-storage-class
   replicas: 1
-tableManager:
-  retention_deletes_enabled: true
-  retention_period: 14d
