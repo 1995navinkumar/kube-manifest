@@ -4,11 +4,11 @@ loki:
     replication_factor: 1
   storage:
     type: filesystem
-  ingester:
-    wal:
-      enabled: false
 singleBinary:
   persistence:
     size: 3Gi
     storageClass: local-storage-class
   replicas: 1
+tableManager:
+  retention_deletes_enabled: true
+  retention_period: 7d
