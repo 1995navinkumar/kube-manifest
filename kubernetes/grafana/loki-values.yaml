@@ -11,4 +11,4 @@ singleBinary:
   replicas: 1
 tableManager:
   retention_deletes_enabled: true
-  retention_period: 7d
+  retention_period: 14d
