@@ -3,11 +3,12 @@ auth:
   postgresPassword: "${postgresAdminPassword}"
   username: "${postgresUser}"
   password: "${postgresPassword}"
+  database: "thirtyinches"
 primary:
   persistence:
     size: 3Gi
     storageClass: local-storage-class
 volumePermissions:
   enabled: true
-# metrics:
-#   enabled: true
+metrics:
+  enabled: true
