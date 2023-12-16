@@ -13,6 +13,29 @@ resource "helm_release" "postgresql" {
   ]
 }
 
+resource "helm_release" "pgadmin" {
+  name       = "pgadmin"
+  repository = "https://helm.runix.net"
+  chart      = "pgadmin4"
+  namespace  = "postgresql"
+  values = [
+    templatefile("${path.module}/pgadmin-values.yaml", {
+      postgresAdminPassword = var.postgresAdminPassword
+    })
+  ]
+  depends_on = [helm_release.postgresql]
+}
+
+# resource "kubernetes_manifest" "pgadmin-middleware" {
+#   manifest   = yamldecode(file("${path.module}/manifests/pgadmin-middleware.yaml"))
+#   depends_on = [helm_release.pgadmin]
+# }
+
+# resource "kubernetes_manifest" "pgadmin-ingress" {
+#   manifest   = yamldecode(file("${path.module}/manifests/pgadmin-ingress.yaml"))
+#   depends_on = [kubernetes_manifest.pgadmin-middleware]
+# }
+
 resource "kubernetes_config_map" "sql_scripts" {
   metadata {
     name      = "sql-scripts"

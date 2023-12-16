@@ -1,0 +1,19 @@
+env:
+  email: "1995navinkumar@gmail.com"
+  password: "${postgresAdminPassword}"
+# Could not configure ingress with subpath. Container fails to start when SCRIPT_NAME env variable is passed
+# Hence using NodePort
+service:
+  type: NodePort
+  nodePort: 32000
+persistentVolume:
+  enabled: false
+ingress:
+  enabled: false
+  hosts:
+    - host: gently-concise-dogfish.ngrok-free.app
+      paths:
+        - path: /pgadmin
+          pathType: Prefix
+VolumePermissions:
+  enabled: true
