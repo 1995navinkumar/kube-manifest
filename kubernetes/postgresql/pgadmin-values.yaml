@@ -1,0 +1,14 @@
+env:
+  email: "1995navinkumar@gmail.com"
+  password: "${postgresAdminPassword}"
+persistentVolume:
+  enabled: false
+ingress:
+  enabled: true
+  hosts:
+    - host: gently-concise-dogfish.ngrok-free.app
+      paths:
+        - path: /pgadmin
+          pathType: Prefix
+VolumePermissions:
+  enabled: true

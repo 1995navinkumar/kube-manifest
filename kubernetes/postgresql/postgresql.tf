@@ -13,6 +13,18 @@ resource "helm_release" "postgresql" {
   ]
 }
 
+resource "helm_release" "pgadmin" {
+  name       = "pgadmin"
+  repository = "https://helm.runix.net"
+  chart      = "pgadmin4"
+  namespace  = "postgresql"
+  values = [
+    templatefile("${path.module}/pgadmin-values.yaml", {
+      postgresAdminPassword = var.postgresAdminPassword
+    })
+  ]
+}
+
 resource "kubernetes_config_map" "sql_scripts" {
   metadata {
     name      = "sql-scripts"
