@@ -33,6 +33,7 @@ resource "kubernetes_job" "run_sql_scripts" {
 
   spec {
     ttl_seconds_after_finished = 120
+    backoff_limit              = 1
     template {
       metadata {
 
@@ -46,7 +47,7 @@ resource "kubernetes_job" "run_sql_scripts" {
 
           command = [
             "psql",
-            "-h", "localhost",
+            "-h", "postgresql.postgresql",
             "-d", "thirtyinches",
             "-f", "/scripts/thirtyinches_schema.sql",
           ]
