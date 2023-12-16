@@ -53,11 +53,11 @@ resource "kubernetes_job" "run_sql_scripts" {
           ]
 
           env {
-            name  = "POSTGRES_USER"
+            name  = "PGUSER"
             value = var.postgresUser
           }
           env {
-            name  = "POSTGRES_PASSWORD"
+            name  = "PGPASSWORD"
             value = var.postgresPassword
           }
 
