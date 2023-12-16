@@ -15,7 +15,7 @@ resource "helm_release" "postgresql" {
 
 resource "kubernetes_config_map" "sql_scripts" {
   metadata {
-    name      = "sql_scripts"
+    name      = "sql-scripts"
     namespace = "postgresql"
   }
 
@@ -27,7 +27,7 @@ resource "kubernetes_config_map" "sql_scripts" {
 
 resource "kubernetes_job" "run_sql_scripts" {
   metadata {
-    name      = "run_sql_scripts"
+    name      = "run-sql-scripts"
     namespace = "postgresql"
   }
 
@@ -58,15 +58,15 @@ resource "kubernetes_job" "run_sql_scripts" {
 
 
           volume_mounts {
-            name       = "sql_scripts_volume"
+            name       = "sql-scripts-volume"
             mount_path = "/scripts"
           }
         }
 
         volume {
-          name = "sql_scripts_volume"
+          name = "sql-scripts-volume"
           config_map {
-            name = "sql_scripts"
+            name = "sql-scripts"
           }
         }
       }
