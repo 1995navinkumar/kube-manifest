@@ -26,15 +26,15 @@ resource "helm_release" "pgadmin" {
   depends_on = [helm_release.postgresql]
 }
 
-resource "kubernetes_manifest" "pgadmin-middleware" {
-  manifest   = yamldecode(file("${path.module}/manifests/pgadmin-middleware.yaml"))
-  depends_on = [helm_release.pgadmin]
-}
+# resource "kubernetes_manifest" "pgadmin-middleware" {
+#   manifest   = yamldecode(file("${path.module}/manifests/pgadmin-middleware.yaml"))
+#   depends_on = [helm_release.pgadmin]
+# }
 
-resource "kubernetes_manifest" "pgadmin-ingress" {
-  manifest   = yamldecode(file("${path.module}/manifests/pgadmin-ingress.yaml"))
-  depends_on = [kubernetes_manifest.pgadmin-middleware]
-}
+# resource "kubernetes_manifest" "pgadmin-ingress" {
+#   manifest   = yamldecode(file("${path.module}/manifests/pgadmin-ingress.yaml"))
+#   depends_on = [kubernetes_manifest.pgadmin-middleware]
+# }
 
 resource "kubernetes_config_map" "sql_scripts" {
   metadata {
