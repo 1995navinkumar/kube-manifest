@@ -12,3 +12,15 @@ resource "helm_release" "postgresql" {
     })
   ]
 }
+
+resource "kubernetes_config_map" "sql_scripts" {
+  metadata {
+    name      = "sql_scripts"
+    namespace = "postgresql"
+  }
+
+  data = {
+    "thirtyinches_schema.sql" = "${file("${path.module}/scripts/thirtyinches/schema.sql")}"
+  }
+
+}
