@@ -1,13 +1,13 @@
 env:
   email: "1995navinkumar@gmail.com"
   password: "${postgresAdminPassword}"
-  variables:
-    - name: SCRIPT_NAME
-      value: "/pgadmin"
+service:
+  type: NodePort
+  nodePort: 9500
 persistentVolume:
   enabled: false
 ingress:
-  enabled: true
+  enabled: false
   hosts:
     - host: gently-concise-dogfish.ngrok-free.app
       paths:
