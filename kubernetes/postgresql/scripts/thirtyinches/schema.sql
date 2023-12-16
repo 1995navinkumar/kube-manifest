@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS Plans (
     name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
-    period_type ENUM('MONTHLY', 'YEARLY') NOT NULL,
     trial_days INTEGER DEFAULT NULL
 );
 
