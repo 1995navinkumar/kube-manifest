@@ -32,6 +32,7 @@ resource "kubernetes_job" "run_sql_scripts" {
   }
 
   spec {
+    ttl_seconds_after_finished = 120
     template {
       metadata {
 
@@ -41,7 +42,7 @@ resource "kubernetes_job" "run_sql_scripts" {
 
         container {
           name  = "postgres-client"
-          image = "jbergknoff/postgresql-client"
+          image = "postgres:alpine"
 
           command = [
             "psql",
