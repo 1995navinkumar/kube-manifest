@@ -33,6 +33,9 @@ resource "kubernetes_job" "run_sql_scripts" {
 
   spec {
     template {
+      metadata {
+
+      }
       spec {
         restart_policy = "Never"
 
@@ -57,7 +60,7 @@ resource "kubernetes_job" "run_sql_scripts" {
           }
 
 
-          volume_mounts {
+          volume_mount {
             name       = "sql-scripts-volume"
             mount_path = "/scripts"
           }
