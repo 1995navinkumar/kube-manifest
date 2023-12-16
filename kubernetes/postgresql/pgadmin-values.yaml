@@ -3,7 +3,7 @@ env:
   password: "${postgresAdminPassword}"
 service:
   type: NodePort
-  nodePort: 9500
+  nodePort: 32000
 persistentVolume:
   enabled: false
 ingress:
