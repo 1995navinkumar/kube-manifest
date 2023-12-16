@@ -7,15 +7,15 @@ CREATE TABLE IF NOT EXISTS Users (
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- -- Plans table
--- CREATE TABLE IF NOT EXISTS Plans (
---     plan_id SERIAL PRIMARY KEY,
---     name VARCHAR(255) NOT NULL,
---     description TEXT NOT NULL,
---     price DECIMAL(10, 2) NOT NULL,
---     period_type ENUM('MONTHLY', 'YEARLY') NOT NULL,
---     trial_days INTEGER DEFAULT NULL
--- );
+-- Plans table
+CREATE TABLE IF NOT EXISTS Plans (
+    plan_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    period_type ENUM('MONTHLY', 'YEARLY') NOT NULL,
+    trial_days INTEGER DEFAULT NULL
+);
 
 -- -- Subscriptions table
 -- CREATE TABLE IF NOT EXISTS Subscriptions (
