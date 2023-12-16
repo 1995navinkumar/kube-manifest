@@ -29,7 +29,6 @@ resource "kubernetes_job" "run_sql_scripts" {
   metadata {
     name      = "run-sql-scripts"
     namespace = "postgresql"
-    uid       = "1.0.0"
   }
 
   spec {
@@ -80,4 +79,9 @@ resource "kubernetes_job" "run_sql_scripts" {
   depends_on = [
     helm_release.postgresql, kubernetes_config_map.sql_scripts
   ]
+  lifecycle {
+    replace_triggered_by = [
+      kubernetes_config_map.sql_scripts
+    ]
+  }
 }
