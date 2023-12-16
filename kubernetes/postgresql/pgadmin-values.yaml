@@ -1,6 +1,9 @@
 env:
   email: "1995navinkumar@gmail.com"
   password: "${postgresAdminPassword}"
+  variables:
+    - name: SCRIPT_NAME
+      value: "/pgadmin"
 persistentVolume:
   enabled: false
 ingress:
