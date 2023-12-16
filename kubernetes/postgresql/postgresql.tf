@@ -35,6 +35,13 @@ resource "kubernetes_job" "run_sql_scripts" {
     backoff_limit = 1
     template {
       metadata {
+        annotations = {
+          scrape_logs = "true"
+        }
+
+        labels = {
+          app = "run-sql-scripts-job"
+        }
       }
       spec {
         restart_policy = "Never"
