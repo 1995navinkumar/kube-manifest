@@ -4,7 +4,7 @@ env:
 persistentVolume:
   enabled: false
 ingress:
-  enabled: true
+  enabled: false
   hosts:
     - host: gently-concise-dogfish.ngrok-free.app
       paths:
