@@ -29,13 +29,13 @@ resource "kubernetes_job" "run_sql_scripts" {
   metadata {
     name      = "run-sql-scripts"
     namespace = "postgresql"
+    uid       = "1.0.0"
   }
 
   spec {
     backoff_limit = 1
     template {
       metadata {
-        version = "1.0.0"
       }
       spec {
         restart_policy = "Never"
