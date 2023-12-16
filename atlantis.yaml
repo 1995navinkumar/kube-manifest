@@ -3,4 +3,4 @@ projects:
   - dir: .
     workspace: production
     autoplan:
-      enabled: false
+      enabled: true
