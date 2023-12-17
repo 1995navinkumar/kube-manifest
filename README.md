@@ -8,5 +8,6 @@ Oracle provides free `Compute Engine` along with `200GB Block Storage` which is 
 
 
 ### Components of Oracle Cloud
-![vpc](https://github.com/1995navinkumar/terraform/assets/22029111/f4e5c085-ccea-4520-adb8-a13ebd0fb816#gh-light-mode-only)
+![vpc](/docs/assets/vpc-light.svg#gh-light-mode-only)
+![vpc](/docs/assets/vpc-dark.svg#gh-dark-mode-only)
 
