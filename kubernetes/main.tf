@@ -55,6 +55,6 @@ module "postgresql" {
   postgresPassword      = var.postgresPassword
 }
 
-module "coturn" {
-  source = "./coturn"
-}
+# module "coturn" {
+#   source = "./coturn"
+# }
