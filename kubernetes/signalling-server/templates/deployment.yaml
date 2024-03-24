@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: signalling-server
+  name: signalling-server
+  labels:
+    app: signalling-server
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: signalling-server
+  template:
+    metadata:
+      annotations:
+        scrape_logs: "true"
+      labels:
+        app: signalling-server
+    spec:
+      containers:
+        - name: signalling-server
+          image: {{ .Values.image }}
+          ports:
+            - name: web
+              containerPort: 8000
+            - name: ws
+              containerPort: 8080

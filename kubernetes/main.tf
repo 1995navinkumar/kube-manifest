@@ -54,3 +54,7 @@ module "postgresql" {
   postgresUser          = var.postgresUser
   postgresPassword      = var.postgresPassword
 }
+
+module "signalling-server" {
+  source = "./signalling-server"
+}
