@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: kacheri
+  name: kacheri
+  labels:
+    app: kacheri
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kacheri
+  template:
+    metadata:
+      annotations:
+        scrape_logs: "true"
+      labels:
+        app: kacheri
+    spec:
+      containers:
+        - name: kacheri
+          image: {{ .Values.image }}
+          ports:
+            - name: web
+              containerPort: 8000
+            - name: ws
+              containerPort: 8080
