@@ -1,5 +1,5 @@
-resource "helm_release" "signalling-server" {
-  name  = "signalling-server"
+resource "helm_release" "kacheri" {
+  name  = "kacheri"
   chart = path.module
   values = [
     "${file("${path.module}/values.yaml")}"

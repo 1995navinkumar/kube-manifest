@@ -1,0 +1,37 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: stripprefix-kacheri
+  namespace: kacheri
+spec:
+  stripPrefix:
+    prefixes:
+      - "/kacheri"
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingress-kacheri
+  namespace: kacheri
+
+spec:
+  entryPoints:
+    - web
+
+  routes:
+    - match: PathPrefix(`/kacheri/ws`)
+      kind: Rule
+      services:
+        - name: kacheri
+          port: 8080
+      middlewares:
+        - name: stripprefix-kacheri
+        
+    - match: PathPrefix(`/kacheri`)
+      kind: Rule
+      services:
+        - name: kacheri
+          port: 80
+      middlewares:
+        - name: stripprefix-kacheri
+

@@ -1,25 +1,25 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  namespace: signalling-server
-  name: signalling-server
+  namespace: kacheri
+  name: kacheri
   labels:
-    app: signalling-server
+    app: kacheri
 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: signalling-server
+      app: kacheri
   template:
     metadata:
       annotations:
         scrape_logs: "true"
       labels:
-        app: signalling-server
+        app: kacheri
     spec:
       containers:
-        - name: signalling-server
+        - name: kacheri
           image: {{ .Values.image }}
           ports:
             - name: web

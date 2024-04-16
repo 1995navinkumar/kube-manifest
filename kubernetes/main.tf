@@ -55,6 +55,6 @@ module "postgresql" {
   postgresPassword      = var.postgresPassword
 }
 
-module "signalling-server" {
-  source = "./signalling-server"
+module "kacheri" {
+  source = "./kacheri"
 }
