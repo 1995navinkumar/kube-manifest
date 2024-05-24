@@ -1,0 +1,29 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: stripprefix-healthvue
+  namespace: healthvue
+spec:
+  stripPrefix:
+    prefixes:
+      - "/healthvue"
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingress-healthvue
+  namespace: healthvue
+
+spec:
+  entryPoints:
+    - web
+
+  routes:
+    - match: PathPrefix(`/healthvue`)
+      kind: Rule
+      services:
+        - name: healthvue
+          port: 80
+      middlewares:
+        - name: stripprefix-healthvue
+

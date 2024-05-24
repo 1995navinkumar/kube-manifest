@@ -58,3 +58,7 @@ module "postgresql" {
 module "kacheri" {
   source = "./kacheri"
 }
+
+module "healthvue" {
+  source = "./healthvue"
+}
