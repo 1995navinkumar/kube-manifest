@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: healthvue
+  name: healthvue-server
+  labels:
+    app: healthvue-server
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: healthvue-server
+  template:
+    metadata:
+      labels:
+        app: healthvue-server
+    spec:
+      containers:
+        - name: healthvue-server
+          image: {{ .Values.image }}
+          ports:
+            - name: web
+              containerPort: 8080
+             
