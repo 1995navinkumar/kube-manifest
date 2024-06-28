@@ -13,6 +13,8 @@ spec:
       app: healthvue
   template:
     metadata:
+      annotations:
+        scrape_logs: "true"
       labels:
         app: healthvue
     spec:
