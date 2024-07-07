@@ -23,5 +23,5 @@ spec:
           image: {{ .Values.image }}
           ports:
             - name: web
-              containerPort: 8000
+              containerPort: 8080
              
