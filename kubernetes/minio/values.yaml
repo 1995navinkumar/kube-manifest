@@ -1,0 +1,8 @@
+namespaceOverride: minio
+auth:
+  rootPassword : admin
+persistence:
+  storageClass: local-storage-class
+  size: 3Gi
+volumePermissions:
+  enabled: true
