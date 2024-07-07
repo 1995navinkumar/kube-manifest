@@ -66,3 +66,7 @@ module "healthvue" {
 module "healthvue-server" {
   source = "./healthvue-server"
 }
+
+module "minio" {
+  source = "./minio"
+}

@@ -1,0 +1,26 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingress-minio
+  namespace: minio
+
+spec:
+  entryPoints:
+    - web
+
+  routes:
+    - match: PathPrefix(`/minio`)
+      kind: Rule
+      services:
+        - name: minio
+          port: 9001
+      middlewares:
+        - name: stripprefix-minio
+    - match: PathPrefix(`/minio-server`)
+      kind: Rule
+      services:
+        - name: minio
+          port: 9000
+      middlewares:
+        - name: stripprefix-minio
+
