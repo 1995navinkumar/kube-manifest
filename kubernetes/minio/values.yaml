@@ -1,6 +1,6 @@
 namespaceOverride: minio
 auth:
-  rootPassword : admin
+  rootPassword : minioadmin
 persistence:
   storageClass: local-storage-class
   size: 3Gi
