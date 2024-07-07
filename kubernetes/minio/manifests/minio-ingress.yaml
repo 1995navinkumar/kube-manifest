@@ -12,6 +12,7 @@ spec:
     - match: PathPrefix(`/minio`)
       kind: Rule
       services:
+        - name: minio
           port: 9001
       middlewares:
         - name: stripprefix-minio
