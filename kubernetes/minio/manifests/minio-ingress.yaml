@@ -16,4 +16,11 @@ spec:
           port: 9001
       middlewares:
         - name: stripprefix-minio
+    - match: PathPrefix(`/minio-server`)
+      kind: Rule
+      services:
+        - name: minio
+          port: 9000
+      middlewares:
+        - name: stripprefix-minio
 
